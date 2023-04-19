@@ -3,7 +3,7 @@ import { AiFillStar, AiOutlineStar, AiOutlineHeart } from "react-icons/ai";
 
 export const ProductCard = () => {
   return (
-    <div className="rounded-xl lg:w-96">
+    <div className="rounded-xl md:w-96">
       <div className="relative bg-slate-100">
         <div className="absolute top-4 right-5 z-10 text-3xl text-gray-1 cursor-pointer">
           <AiOutlineHeart />
