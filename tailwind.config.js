@@ -11,6 +11,7 @@ export default {
         },
         gray: {
           1: "#7D879C",
+          2: "#EBEFF4",
         },
         "yellow-": "#FFD300",
       },

@@ -1,9 +1,9 @@
 import { Header } from "./common/components/header/Header";
 import { Footer } from "./common/components/footer/Footer";
 import { Navbar } from "./common/components/navbar/Navbar";
-import { AiFillStar, AiOutlineStar } from "react-icons/ai";
-import "./App.css";
 import { ProductCard } from "./common/components/productCard/ProductCard";
+
+import "./App.css";
 
 function App() {
   return (
@@ -11,13 +11,18 @@ function App() {
       <Header />
       <Navbar />
 
-      <div className="border-2 bg-slate-400 flex flex-col max-w-6xl mx-auto px-5">
-        <div className="border-2">Filtros</div>
-        <div className="border">
-          <h1 className="border text-center">Lista</h1>
-          <div>Barra de busqueda con dropdown</div>
-          <div>Lista de productos</div>
-          <ProductCard />
+      <div className="flex flex-col lg:flex-row  mx-auto px-5">
+        <div>Filtros</div>
+        <div>
+          <div>Barra de búsqueda con dropdown</div>
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-[51px] ">
+            <ProductCard />
+            <ProductCard />
+            <ProductCard />
+            <ProductCard />
+            <ProductCard />
+            <ProductCard />
+          </div>
         </div>
       </div>
 
