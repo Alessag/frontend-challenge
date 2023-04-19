@@ -9,6 +9,9 @@ export default {
           2: "#004AC1",
           3: "#2b3445",
         },
+        gray: {
+          1: "#7D879C",
+        },
         "yellow-": "#FFD300",
       },
       boxShadow: {
