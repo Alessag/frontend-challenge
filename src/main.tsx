@@ -4,7 +4,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import App from "./App";
 
 import "./index.css";
-import { HomePage } from "./pages/home/HomePage";
+import { Home } from "./routes/Home";
 import { Root } from "./routes/root";
 function ClubComponent() {
   return (
@@ -57,7 +57,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <HomePage />,
+        element: <Home />,
       },
       {
         path: "/phones",

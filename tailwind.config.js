@@ -8,15 +8,18 @@ export default {
           1: "#0744A8",
           2: "#004AC1",
           3: "#2b3445",
+          4: "#013E9B",
         },
         gray: {
           1: "#7D879C",
           2: "#EBEFF4",
+          3: "#B4B4B4",
         },
         "yellow-": "#FFD300",
       },
       boxShadow: {
         primary: "0px 5px 6px #00000029",
+        secondary: "0px 3px 6px #00000029",
       },
     },
   },
