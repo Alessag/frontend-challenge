@@ -4,6 +4,8 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import App from "./App";
 
 import "./index.css";
+import { HomePage } from "./pages/home/HomePage";
+import { Root } from "./routes/root";
 function ClubComponent() {
   return (
     <div>
@@ -50,31 +52,38 @@ function PhonesComponent() {
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App />,
-  },
-  {
-    path: "/phones",
-    element: <PhonesComponent />,
-  },
-  {
-    path: "/motorcycle",
-    element: <MotorcycleComponent />,
-  },
-  {
-    path: "/loans",
-    element: <LoansComponent />,
-  },
-  {
-    path: "/stores",
-    element: <StoresComponent />,
-  },
-  {
-    path: "/tracking",
-    element: <TrackingComponent />,
-  },
-  {
-    path: "/club",
-    element: <ClubComponent />,
+    element: <Root />,
+    errorElement: <div>Not Found</div>,
+    children: [
+      {
+        path: "/",
+        element: <HomePage />,
+      },
+      {
+        path: "/phones",
+        element: <PhonesComponent />,
+      },
+      {
+        path: "/motorcycle",
+        element: <MotorcycleComponent />,
+      },
+      {
+        path: "/loans",
+        element: <LoansComponent />,
+      },
+      {
+        path: "/stores",
+        element: <StoresComponent />,
+      },
+      {
+        path: "/tracking",
+        element: <TrackingComponent />,
+      },
+      {
+        path: "/club",
+        element: <ClubComponent />,
+      },
+    ],
   },
 ]);
 
