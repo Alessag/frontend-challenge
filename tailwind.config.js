@@ -7,8 +7,12 @@ export default {
         blue: {
           1: "#0744A8",
           2: "#004AC1",
+          3: "#2b3445",
         },
         "yellow-": "#FFD300",
+      },
+      boxShadow: {
+        primary: "0px 5px 6px #00000029",
       },
     },
   },
