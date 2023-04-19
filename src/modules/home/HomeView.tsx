@@ -1,5 +1,6 @@
 import { Filters } from "../../common/components/filters/Filters";
 import { ProductCard } from "../../common/components/productCard/ProductCard";
+import { BestSellerProducts } from "./BestSellerProducts";
 
 export const HomeView = () => {
   return (
@@ -23,17 +24,7 @@ export const HomeView = () => {
         CTA Banner slider
       </div>
 
-      <div className="border border-green-300 flex flex-col items-center max-w-7xl 2xl:max-w-full mx-auto mb-40">
-        <h1 className="text-blue-3 text-lg md:text-xl lg:text-[22px] font-bold mb-11">
-          Nuestros Productos Más Vendidos
-        </h1>
-        <div className="flex flex-row justify-start 2xl:justify-center gap-x-9 w-80 md:w-[600px] lg:w-full overflow-x-scroll">
-          <ProductCard />
-          <ProductCard />
-          <ProductCard />
-          <ProductCard />
-        </div>
-      </div>
+      <BestSellerProducts />
     </div>
   );
 };
