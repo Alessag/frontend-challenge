@@ -1,24 +1,22 @@
 import React from "react";
 import { Checkbox, FormControlLabel, Rating, TextField } from "@mui/material";
-import { ProductCategory } from "../../../modules/home/utils/mockedData";
+import { ProductCategory } from "../../../modules/home/utils/enums";
+import { brands } from "../../../modules/home/utils/mockedData";
 
-const brands: Record<ProductCategory, string[]> = {
-  [ProductCategory.PHONE]: ["Apple", "Samsung", "Huawei"],
-  [ProductCategory.MOTORCYCLE]: ["Yamaha", "Honda", "Suzuki", "Kawasaki"],
-  [ProductCategory.LOAN]: ["Banco de Chile", "Banco Estado", "Banco Santander"],
-  [ProductCategory.STORE]: ["Falabella", "Paris", "Liverpool"],
-  [ProductCategory.TRACKING]: ["Correos de Chile", "Chilexpress"],
-  [ProductCategory.CLUB]: ["Cencosud", "Paris", "Liverpool"],
-};
+export interface FilterOptions {
+  brands: string[];
+  minPrice: number;
+  maxPrice: number;
+  reviews: number;
+  favorite: boolean;
+}
+
 interface FiltersProps {
-  handleFilterChange: (filterName: string, filterValue: any) => void;
-  selectedFilters: {
-    brands: string[];
-    minPrice: number;
-    maxPrice: number;
-    reviews: number;
-    favorite: boolean;
-  };
+  handleFilterChange: (
+    filterName: keyof FilterOptions,
+    filterValue: any
+  ) => void;
+  selectedFilters: FilterOptions;
   category: ProductCategory;
 }
 

@@ -1,26 +1,21 @@
-/**
- * LIST OF PHONEs FOR THE HOME PAGE
- */
+import { ProductCategory } from "./enums";
+import { Product } from "./types";
 
-export enum ProductCategory {
-  PHONE = "phone",
-  MOTORCYCLE = "motorcycle",
-  LOAN = "loan",
-  STORE = "store",
-  TRACKING = "tracking",
-  CLUB = "club",
-}
-export interface Product {
-  id: string;
-  name: string;
-  brand: string;
-  reviews: number;
-  originalPrice: number;
-  currentPrice: number;
-  image: string;
-  category: ProductCategory;
-  favorite?: boolean;
-}
+/**
+ * LIST OF CATEGORIES BRANDS
+ */
+export const brands: Record<ProductCategory, string[]> = {
+  [ProductCategory.PHONE]: ["Apple", "Samsung", "Huawei"],
+  [ProductCategory.MOTORCYCLE]: ["Yamaha", "Honda", "Suzuki", "Kawasaki"],
+  [ProductCategory.LOAN]: ["Banco de Chile", "Banco Estado", "Banco Santander"],
+  [ProductCategory.STORE]: ["Falabella", "Paris", "Liverpool"],
+  [ProductCategory.TRACKING]: ["Correos de Chile", "Chilexpress"],
+  [ProductCategory.CLUB]: ["Cencosud", "Paris", "Liverpool"],
+};
+
+/**
+ * LIST OF PRODUCTS FOR THE HOME PAGE
+ */
 export const phonesList: Product[] = [
   {
     id: "1",
@@ -36,7 +31,7 @@ export const phonesList: Product[] = [
   },
   {
     id: "2",
-    name: "Samsung Galaxy A21s",
+    name: "Samsung A21s",
     brand: "Samsung",
     reviews: 5,
     originalPrice: 799,

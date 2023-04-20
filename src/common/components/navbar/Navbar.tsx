@@ -14,7 +14,13 @@ export const Navbar = () => {
     <nav className="border-black md:h-[60px] bg-white flex flex-col md:flex-row md:items-center text-xs lg:text-base shadow-primary">
       {navLinkOptions.map((option) => {
         return (
-          <NavLink key={option.id} to={option.path} className="navLink">
+          <NavLink
+            key={option.id}
+            to={option.path}
+            className={({ isActive }) =>
+              isActive ? "text-blue-4 font-bold navLink" : "navLink"
+            }
+          >
             {option.name}
           </NavLink>
         );

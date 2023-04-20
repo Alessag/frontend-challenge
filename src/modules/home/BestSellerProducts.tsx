@@ -3,7 +3,7 @@ import { phonesList } from "./utils/mockedData";
 
 export const BestSellerProducts = () => {
   return (
-    <div className="border border-green-300 flex flex-col items-center max-w-7xl mx-auto mb-40">
+    <div className="flex flex-col items-center max-w-7xl mx-auto mb-40">
       <h1 className="text-blue-3 text-lg md:text-xl lg:text-[22px] font-bold mb-11">
         Nuestros Productos Más Vendidos
       </h1>

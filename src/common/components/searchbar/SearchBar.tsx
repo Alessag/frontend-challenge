@@ -13,7 +13,6 @@ export const SearchBar: React.FC<SearchBarProps> = ({ onSearch, label }) => {
   const handleSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSearchValue(event.target.value);
     onSearch(event.target.value);
-    console.log(event.target.value);
   };
 
   return (
@@ -31,9 +30,7 @@ export const SearchBar: React.FC<SearchBarProps> = ({ onSearch, label }) => {
           </div>
         ),
       }}
-      sx={{
-        width: "402px",
-      }}
+      className="w-full lg:max-w-[402px]"
     />
   );
 };

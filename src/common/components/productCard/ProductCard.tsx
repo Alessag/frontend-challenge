@@ -1,11 +1,11 @@
 import { Rating } from "@mui/material";
 import React from "react";
 import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
-import { Product } from "../../../modules/home/utils/mockedData";
+import { Product } from "../../../modules/home/utils/types";
 
 interface ProductCardProps {
   product: Product;
-  handleFavorite: (productId: string) => void;
+  handleFavorite?: (productId: string) => void;
 }
 
 export const ProductCard: React.FC<ProductCardProps> = ({
@@ -17,7 +17,11 @@ export const ProductCard: React.FC<ProductCardProps> = ({
       <div className="relative bg-slate-100">
         <div
           className="absolute top-4 right-5 z-10 text-3xl text-gray-1 cursor-pointer"
-          onClick={() => handleFavorite(product.id)}
+          onClick={() => {
+            if (handleFavorite) {
+              handleFavorite(product.id);
+            }
+          }}
         >
           {product.favorite ? <AiFillHeart color="blue" /> : <AiOutlineHeart />}
         </div>

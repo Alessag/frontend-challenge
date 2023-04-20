@@ -1,42 +1,22 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
-import { Filters } from "../../common/components/filters/Filters";
+import {
+  FilterOptions,
+  Filters,
+} from "../../common/components/filters/Filters";
 import { ProductCard } from "../../common/components/productCard/ProductCard";
 import { SearchBar } from "../../common/components/searchbar/SearchBar";
 import { BestSellerProducts } from "./BestSellerProducts";
-import { phonesList, Product, ProductCategory } from "./utils/mockedData";
-
-const parseCategory = (category: string): ProductCategory => {
-  switch (category) {
-    case "club":
-      return ProductCategory.CLUB;
-    case "tracking":
-      return ProductCategory.TRACKING;
-    case "stores":
-      return ProductCategory.STORE;
-    case "loans":
-      return ProductCategory.LOAN;
-    case "motorcycle":
-      return ProductCategory.MOTORCYCLE;
-    case "phones":
-      return ProductCategory.PHONE;
-    default:
-      return ProductCategory.PHONE;
-  }
-};
+import { parseCategory } from "./utils/functions";
+import { phonesList } from "./utils/mockedData";
+import { Product } from "./utils/types";
 
 export const HomeView = () => {
   const location = useLocation();
   const [searchValue, setSearchValue] = React.useState("");
   const [filteredProducts, setFilteredProducts] = React.useState<Product[]>([]);
   const [categoryProducts, setCategoryProducts] = React.useState<Product[]>([]);
-  const [selectedFilters, setSelectedFilters] = React.useState<{
-    brands: string[];
-    minPrice: number;
-    maxPrice: number;
-    reviews: number;
-    favorite: boolean;
-  }>({
+  const [selectedFilters, setSelectedFilters] = React.useState<FilterOptions>({
     brands: [],
     minPrice: 0,
     maxPrice: 5000,
@@ -68,7 +48,10 @@ export const HomeView = () => {
     setCategoryProducts(filteredCategoryProducts);
   }, [location]);
 
-  const handleFilterChange = (filterName: string, filterValue: any) => {
+  const handleFilterChange = (
+    filterName: keyof FilterOptions,
+    filterValue: any
+  ) => {
     setSelectedFilters((prevFilters) => ({
       ...prevFilters,
       [filterName]: filterValue,
@@ -89,19 +72,19 @@ export const HomeView = () => {
   };
 
   return (
-    <div className="border border-orange-500">
-      <div className="border border-green-500 flex flex-col 2xl:justify-center lg:flex-row max-w-7xl 2xl:max-w-full mx-auto px-5 xl:px-0">
+    <div>
+      <div className="flex flex-col 2xl:justify-center lg:flex-row max-w-7xl 2xl:max-w-full mx-auto px-5 xl:px-0">
         <Filters
           handleFilterChange={handleFilterChange}
           selectedFilters={selectedFilters}
           category={parseCategory(location.pathname.substring(1))}
         />
-        <div className="border border-black flex flex-col justify-start items-start">
+        <div className="flex flex-col justify-start items-start">
           <SearchBar
             onSearch={(searchValue) => setSearchValue(searchValue)}
             label="Encuentra el producto que necesitas"
           />
-          <div className="border-2 grid grid-cols-1 xl:grid-cols-2 3xl:grid-cols-3 gap-4 lg:gap-[51px] h-[500px] lg:h-[800px] overflow-y-scroll">
+          <div className="grid grid-cols-1 xl:grid-cols-2 3xl:grid-cols-3 gap-4 lg:gap-[51px] h-[500px] lg:h-[800px] overflow-y-scroll">
             {filteredProducts.length > 0 ? (
               filteredProducts.map((product) => {
                 return (
@@ -119,8 +102,11 @@ export const HomeView = () => {
         </div>
       </div>
 
-      <div className="border-2 bg-red-300 w-full max-w-6xl mx-auto  h-96">
-        CTA Banner slider
+      <div className="border-2 w-full max-w-6xl mx-auto mb-5">
+        <h1 className="text-blue-3 text-lg md:text-xl lg:text-[22px] font-bold my-5 text-center">
+          Ofertas y promociones
+        </h1>
+        <div className="bg-red-300 h-[557px]">CTA Banner slider</div>
       </div>
 
       <BestSellerProducts />
