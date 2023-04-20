@@ -7,21 +7,34 @@ import { phonesList } from "./utils/mockedData";
 
 export const HomeView = () => {
   const [searchValue, setSearchValue] = React.useState("");
-  const [filteredPhones, setPhonesList] = React.useState(phonesList);
-  const [selectedFilters, setSelectedFilters] = React.useState({
+  const [filteredProducts, setFilteredProducts] = React.useState(phonesList);
+  const [selectedFilters, setSelectedFilters] = React.useState<{
+    brands: string[];
+    minPrice: number;
+    maxPrice: number;
+    reviews: number;
+  }>({
     brands: [],
-    minPrice: "0",
-    maxPrice: "5,000",
+    minPrice: 0,
+    maxPrice: 5000,
     reviews: 0,
   });
 
+  // filter by name search
   React.useEffect(() => {
     console.log(searchValue);
     const filteredPhones = phonesList.filter((phone) => {
-      return phone.name.toLowerCase().includes(searchValue.toLowerCase());
+      return (
+        phone.name.toLowerCase().includes(searchValue.toLowerCase()) &&
+        (selectedFilters.brands.length === 0 ||
+          selectedFilters.brands.includes(phone.brand)) &&
+        phone.currentPrice >= Number(selectedFilters.minPrice) &&
+        phone.currentPrice <= Number(selectedFilters.maxPrice) &&
+        phone.reviews >= selectedFilters.reviews
+      );
     });
-    setPhonesList(filteredPhones);
-  }, [searchValue]);
+    setFilteredProducts(filteredPhones);
+  }, [searchValue, selectedFilters]);
 
   const handleFilterChange = (filterName: string, filterValue: any) => {
     setSelectedFilters((prevFilters) => ({
@@ -43,9 +56,9 @@ export const HomeView = () => {
             label="Encuentra el producto que necesitas"
           />
           <div className="border-2 grid grid-cols-1 xl:grid-cols-2 3xl:grid-cols-3 gap-4 lg:gap-[51px] h-[500px] lg:h-[800px] overflow-y-scroll">
-            {filteredPhones.length > 0 ? (
-              filteredPhones.map((phone) => {
-                return <ProductCard key={phone.id} product={phone} />;
+            {filteredProducts.length > 0 ? (
+              filteredProducts.map((product) => {
+                return <ProductCard key={product.id} product={product} />;
               })
             ) : (
               <p>No se encontraron resultados</p>

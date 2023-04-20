@@ -5,8 +5,8 @@ interface FiltersProps {
   handleFilterChange: (filterName: string, filterValue: any) => void;
   selectedFilters: {
     brands: string[];
-    minPrice: string;
-    maxPrice: string;
+    minPrice: number;
+    maxPrice: number;
     reviews: number;
   };
 }
@@ -48,10 +48,16 @@ export const Filters: React.FC<FiltersProps> = ({
                   key={brand}
                   control={
                     <Checkbox
-                    // checked={selectedFilters.brands.includes(brand)}
-                    // onChange={(event) => {
-                    //   handleFilterChange("brands", event.target.checked);
-                    // }}
+                      checked={selectedFilters.brands.includes(brand)}
+                      onChange={(event) => {
+                        console.log("Brand", event);
+                        handleFilterChange(
+                          "brands",
+                          event.target.checked
+                            ? [...selectedFilters.brands, brand]
+                            : selectedFilters.brands.filter((b) => b !== brand)
+                        );
+                      }}
                     />
                   }
                   label={brand}
