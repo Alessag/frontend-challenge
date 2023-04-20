@@ -18,3 +18,7 @@ export const parseCategory = (category: string): ProductCategory => {
       return ProductCategory.PHONE;
   }
 };
+
+export const getImageUrl = (id: string) => {
+  return `https://picsum.photos/seed/${id}/385/445`;
+};

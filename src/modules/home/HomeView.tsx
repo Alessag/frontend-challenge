@@ -8,7 +8,7 @@ import { ProductCard } from "../../common/components/productCard/ProductCard";
 import { SearchBar } from "../../common/components/searchbar/SearchBar";
 import { BestSellerProducts } from "./BestSellerProducts";
 import { parseCategory } from "./utils/functions";
-import { phonesList } from "./utils/mockedData";
+import { productList } from "./utils/mockedData";
 import { Product } from "./utils/types";
 
 export const HomeView = () => {
@@ -19,31 +19,39 @@ export const HomeView = () => {
   const [selectedFilters, setSelectedFilters] = React.useState<FilterOptions>({
     brands: [],
     minPrice: 0,
-    maxPrice: 5000,
+    maxPrice: 1000000,
     reviews: 0,
     favorite: false,
   });
 
   // filter by name search
   React.useEffect(() => {
-    const filteredPhones = categoryProducts.filter((phone) => {
+    const newFilteredProducts = categoryProducts.filter((product) => {
       return (
-        phone.name.toLowerCase().includes(searchValue.toLowerCase()) &&
+        product.name.toLowerCase().includes(searchValue.toLowerCase()) &&
         (selectedFilters.brands.length === 0 ||
-          selectedFilters.brands.includes(phone.brand)) &&
-        phone.currentPrice >= Number(selectedFilters.minPrice) &&
-        phone.currentPrice <= Number(selectedFilters.maxPrice) &&
-        phone.reviews >= selectedFilters.reviews &&
-        (selectedFilters.favorite ? phone.favorite : true)
+          selectedFilters.brands.includes(product.brand)) &&
+        product.currentPrice >= Number(selectedFilters.minPrice) &&
+        product.currentPrice <= Number(selectedFilters.maxPrice) &&
+        product.reviews >= selectedFilters.reviews &&
+        (selectedFilters.favorite ? product.favorite : true)
       );
     });
-    setFilteredProducts(filteredPhones);
+    setFilteredProducts(newFilteredProducts);
   }, [searchValue, selectedFilters, categoryProducts]);
 
   React.useEffect(() => {
+    setSelectedFilters({
+      brands: [],
+      minPrice: 0,
+      maxPrice: 1000000,
+      reviews: 0,
+      favorite: false,
+    });
+    setSearchValue("");
     const parsedCategory = parseCategory(location.pathname.substring(1));
-    const filteredCategoryProducts = phonesList.filter((phone) => {
-      return phone.category === parsedCategory;
+    const filteredCategoryProducts = productList.filter((product) => {
+      return product.category === parsedCategory;
     });
     setCategoryProducts(filteredCategoryProducts);
   }, [location]);
