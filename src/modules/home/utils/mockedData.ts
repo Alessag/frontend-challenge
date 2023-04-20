@@ -2,6 +2,14 @@
  * LIST OF PHONEs FOR THE HOME PAGE
  */
 
+export enum ProductCategory {
+  PHONE = "phone",
+  MOTORCYCLE = "motorcycle",
+  LOAN = "loan",
+  STORE = "store",
+  TRACKING = "tracking",
+  CLUB = "club",
+}
 export interface Product {
   id: string;
   name: string;
@@ -10,6 +18,7 @@ export interface Product {
   originalPrice: number;
   currentPrice: number;
   image: string;
+  category: ProductCategory;
 }
 export const phonesList: Product[] = [
   {
@@ -21,6 +30,7 @@ export const phonesList: Product[] = [
     currentPrice: 699,
     image:
       "https://images.samsung.com/is/image/samsung/p6pim/mx/sm-g990elgaltm/gallery/mx-galaxy-s21-fe-g990-sm-g990elgaltm-530644429",
+    category: ProductCategory.PHONE,
   },
   {
     id: "2",
@@ -30,6 +40,7 @@ export const phonesList: Product[] = [
     originalPrice: 799,
     currentPrice: 599,
     image: "https://i.blogs.es/ec3e67/samsung-galaxy-a21s/1366_2000.jpg",
+    category: ProductCategory.PHONE,
   },
   {
     id: "3",
@@ -40,6 +51,7 @@ export const phonesList: Product[] = [
     currentPrice: 499,
     image:
       "https://cdn.shopify.com/s/files/1/0569/6602/1154/products/IMG-7325562_1946x.jpg?v=1662683624",
+    category: ProductCategory.PHONE,
   },
   {
     id: "4",
@@ -50,6 +62,7 @@ export const phonesList: Product[] = [
     currentPrice: 600,
     image:
       "https://i01.appmifile.com/v1/MI_18455B3E4DA706226CF7535A58E875F0267/pms_1679368247.59569964!800x800!85.png",
+    category: ProductCategory.PHONE,
   },
   {
     id: "5",
@@ -59,6 +72,7 @@ export const phonesList: Product[] = [
     originalPrice: 500,
     currentPrice: 300,
     image: "https://m.media-amazon.com/images/I/614TeX+ZRiS._SL1000_.jpg",
+    category: ProductCategory.PHONE,
   },
   {
     id: "6",
@@ -69,5 +83,17 @@ export const phonesList: Product[] = [
     currentPrice: 250,
     image:
       "https://www.wom.co/media/catalog/product/cache/e4fc89a0c734bb8aae9953d6b783d4aa/m/o/motorola-g60.jpg",
+    category: ProductCategory.PHONE,
+  },
+  {
+    id: "7",
+    name: "Moto ",
+    brand: "Moto",
+    reviews: 3,
+    originalPrice: 750,
+    currentPrice: 250,
+    image:
+      "https://www.wom.co/media/catalog/product/cache/e4fc89a0c734bb8aae9953d6b783d4aa/m/o/motorola-g60.jpg",
+    category: ProductCategory.MOTORCYCLE,
   },
 ];

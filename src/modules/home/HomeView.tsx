@@ -1,13 +1,35 @@
 import React from "react";
+import { useLocation } from "react-router-dom";
 import { Filters } from "../../common/components/filters/Filters";
 import { ProductCard } from "../../common/components/productCard/ProductCard";
 import { SearchBar } from "../../common/components/searchbar/SearchBar";
 import { BestSellerProducts } from "./BestSellerProducts";
-import { phonesList } from "./utils/mockedData";
+import { phonesList, Product, ProductCategory } from "./utils/mockedData";
+
+const parseCategory = (category: string): ProductCategory => {
+  switch (category) {
+    case "club":
+      return ProductCategory.CLUB;
+    case "tracking":
+      return ProductCategory.TRACKING;
+    case "stores":
+      return ProductCategory.STORE;
+    case "loans":
+      return ProductCategory.LOAN;
+    case "motorcycle":
+      return ProductCategory.MOTORCYCLE;
+    case "phones":
+      return ProductCategory.PHONE;
+    default:
+      return ProductCategory.PHONE;
+  }
+};
 
 export const HomeView = () => {
+  const location = useLocation();
   const [searchValue, setSearchValue] = React.useState("");
-  const [filteredProducts, setFilteredProducts] = React.useState(phonesList);
+  const [filteredProducts, setFilteredProducts] = React.useState<Product[]>([]);
+  const [categoryProducts, setCategoryProducts] = React.useState<Product[]>([]);
   const [selectedFilters, setSelectedFilters] = React.useState<{
     brands: string[];
     minPrice: number;
@@ -22,8 +44,7 @@ export const HomeView = () => {
 
   // filter by name search
   React.useEffect(() => {
-    console.log(searchValue);
-    const filteredPhones = phonesList.filter((phone) => {
+    const filteredPhones = categoryProducts.filter((phone) => {
       return (
         phone.name.toLowerCase().includes(searchValue.toLowerCase()) &&
         (selectedFilters.brands.length === 0 ||
@@ -34,7 +55,15 @@ export const HomeView = () => {
       );
     });
     setFilteredProducts(filteredPhones);
-  }, [searchValue, selectedFilters]);
+  }, [searchValue, selectedFilters, categoryProducts]);
+
+  React.useEffect(() => {
+    const parsedCategory = parseCategory(location.pathname.substring(1));
+    const filteredCategoryProducts = phonesList.filter((phone) => {
+      return phone.category === parsedCategory;
+    });
+    setCategoryProducts(filteredCategoryProducts);
+  }, [location]);
 
   const handleFilterChange = (filterName: string, filterValue: any) => {
     setSelectedFilters((prevFilters) => ({

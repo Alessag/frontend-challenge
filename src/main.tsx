@@ -1,53 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import App from "./App";
 
 import "./index.css";
 import { Home } from "./routes/Home";
 import { Root } from "./routes/root";
-function ClubComponent() {
-  return (
-    <div>
-      <h1>Club Component</h1>
-    </div>
-  );
-}
-function TrackingComponent() {
-  return (
-    <div>
-      <h1>Tracking Component</h1>
-    </div>
-  );
-}
-function StoresComponent() {
-  return (
-    <div>
-      <h1>Stores Component</h1>
-    </div>
-  );
-}
-function LoansComponent() {
-  return (
-    <div>
-      <h1>Loans Component</h1>
-    </div>
-  );
-}
-function MotorcycleComponent() {
-  return (
-    <div>
-      <h1>Motorcycle Component</h1>
-    </div>
-  );
-}
-function PhonesComponent() {
-  return (
-    <div>
-      <h1>Phones Component</h1>
-    </div>
-  );
-}
 
 const router = createBrowserRouter([
   {
@@ -61,27 +18,27 @@ const router = createBrowserRouter([
       },
       {
         path: "/phones",
-        element: <PhonesComponent />,
+        element: <Home />,
       },
       {
         path: "/motorcycle",
-        element: <MotorcycleComponent />,
+        element: <Home />,
       },
       {
         path: "/loans",
-        element: <LoansComponent />,
+        element: <Home />,
       },
       {
         path: "/stores",
-        element: <StoresComponent />,
+        element: <Home />,
       },
       {
         path: "/tracking",
-        element: <TrackingComponent />,
+        element: <Home />,
       },
       {
         path: "/club",
-        element: <ClubComponent />,
+        element: <Home />,
       },
     ],
   },
