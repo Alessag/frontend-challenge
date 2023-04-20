@@ -75,6 +75,19 @@ export const HomeView = () => {
     }));
   };
 
+  const handleFavorite = (id: string) => {
+    const newProducts = categoryProducts.map((product) => {
+      if (product.id === id) {
+        return {
+          ...product,
+          favorite: !product.favorite,
+        };
+      }
+      return product;
+    });
+    setCategoryProducts(newProducts);
+  };
+
   return (
     <div className="border border-orange-500">
       <div className="border border-green-500 flex flex-col 2xl:justify-center lg:flex-row max-w-7xl 2xl:max-w-full mx-auto px-5 xl:px-0">
@@ -91,7 +104,13 @@ export const HomeView = () => {
           <div className="border-2 grid grid-cols-1 xl:grid-cols-2 3xl:grid-cols-3 gap-4 lg:gap-[51px] h-[500px] lg:h-[800px] overflow-y-scroll">
             {filteredProducts.length > 0 ? (
               filteredProducts.map((product) => {
-                return <ProductCard key={product.id} product={product} />;
+                return (
+                  <ProductCard
+                    key={product.id}
+                    product={product}
+                    handleFavorite={handleFavorite}
+                  />
+                );
               })
             ) : (
               <p>No se encontraron resultados</p>

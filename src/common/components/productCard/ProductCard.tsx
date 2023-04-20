@@ -1,18 +1,25 @@
 import { Rating } from "@mui/material";
 import React from "react";
-import { AiOutlineHeart } from "react-icons/ai";
+import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
 import { Product } from "../../../modules/home/utils/mockedData";
 
 interface ProductCardProps {
   product: Product;
+  handleFavorite: (productId: string) => void;
 }
 
-export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
+export const ProductCard: React.FC<ProductCardProps> = ({
+  product,
+  handleFavorite,
+}) => {
   return (
     <div className="rounded-xl md:w-96">
       <div className="relative bg-slate-100">
-        <div className="absolute top-4 right-5 z-10 text-3xl text-gray-1 cursor-pointer">
-          <AiOutlineHeart />
+        <div
+          className="absolute top-4 right-5 z-10 text-3xl text-gray-1 cursor-pointer"
+          onClick={() => handleFavorite(product.id)}
+        >
+          {product.favorite ? <AiFillHeart color="blue" /> : <AiOutlineHeart />}
         </div>
         <img
           src={product.image}
