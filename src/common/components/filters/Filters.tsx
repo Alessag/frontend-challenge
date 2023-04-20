@@ -29,7 +29,13 @@ export const Filters = () => {
           <h1 className="text-blue-4 font-bold mb-1">Marcas</h1>
           <div className="flex flex-col lg:w-72 h-48 pl-3 text-base overflow-y-scroll">
             {listOfBrands.map((brand) => {
-              return <FormControlLabel control={<Checkbox />} label={brand} />;
+              return (
+                <FormControlLabel
+                  key={brand}
+                  control={<Checkbox />}
+                  label={brand}
+                />
+              );
             })}
           </div>
         </div>

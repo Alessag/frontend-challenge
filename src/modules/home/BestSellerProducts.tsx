@@ -1,4 +1,5 @@
 import { ProductCard } from "../../common/components/productCard/ProductCard";
+import { phonesList } from "./utils/mockedData";
 
 export const BestSellerProducts = () => {
   return (
@@ -7,10 +8,9 @@ export const BestSellerProducts = () => {
         Nuestros Productos Más Vendidos
       </h1>
       <div className="flex flex-row justify-start gap-x-9 w-80 md:w-[600px] lg:w-[800px] xl:w-full overflow-x-scroll">
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
+        {phonesList.map((phone) => {
+          return <ProductCard key={phone.id} product={phone} />;
+        })}
       </div>
     </div>
   );
