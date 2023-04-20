@@ -8,6 +8,12 @@ import { phonesList } from "./utils/mockedData";
 export const HomeView = () => {
   const [searchValue, setSearchValue] = React.useState("");
   const [filteredPhones, setPhonesList] = React.useState(phonesList);
+  const [selectedFilters, setSelectedFilters] = React.useState({
+    brands: [],
+    minPrice: "0",
+    maxPrice: "5,000",
+    reviews: 0,
+  });
 
   React.useEffect(() => {
     console.log(searchValue);
@@ -17,10 +23,20 @@ export const HomeView = () => {
     setPhonesList(filteredPhones);
   }, [searchValue]);
 
+  const handleFilterChange = (filterName: string, filterValue: any) => {
+    setSelectedFilters((prevFilters) => ({
+      ...prevFilters,
+      [filterName]: filterValue,
+    }));
+  };
+
   return (
     <div className="border border-orange-500">
       <div className="border border-green-500 flex flex-col 2xl:justify-center lg:flex-row max-w-7xl 2xl:max-w-full mx-auto px-5 xl:px-0">
-        <Filters />
+        <Filters
+          handleFilterChange={handleFilterChange}
+          selectedFilters={selectedFilters}
+        />
         <div className="border border-black flex flex-col justify-start items-start">
           <SearchBar
             onSearch={(searchValue) => setSearchValue(searchValue)}

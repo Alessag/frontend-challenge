@@ -1,5 +1,6 @@
+import { Rating } from "@mui/material";
 import React from "react";
-import { AiFillStar, AiOutlineStar, AiOutlineHeart } from "react-icons/ai";
+import { AiOutlineHeart } from "react-icons/ai";
 import { Product } from "../../../modules/home/utils/mockedData";
 
 interface ProductCardProps {
@@ -23,11 +24,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
         <div>
           <p className="text-blue-3 text-base font-semibold">{product.name}</p>
           <div className="flex h-auto text-2xl mb-5">
-            <AiFillStar color="#FFD300" />
-            <AiFillStar color="#FFD300" />
-            <AiFillStar color="#FFD300" />
-            <AiFillStar color="#FFD300" />
-            <AiOutlineStar color="#FFD300" />
+            <Rating name="product-reviews" value={product.reviews} readOnly />
           </div>
           <p className="text-sm text-gray-1 font-semibold">
             $120 p/semana <br /> $520 p/mes

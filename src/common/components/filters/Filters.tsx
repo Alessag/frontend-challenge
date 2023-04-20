@@ -1,4 +1,15 @@
+import React from "react";
 import { Checkbox, FormControlLabel, Rating, TextField } from "@mui/material";
+
+interface FiltersProps {
+  handleFilterChange: (filterName: string, filterValue: any) => void;
+  selectedFilters: {
+    brands: string[];
+    minPrice: string;
+    maxPrice: string;
+    reviews: number;
+  };
+}
 
 const listOfBrands = [
   "Apple",
@@ -12,7 +23,10 @@ const listOfBrands = [
   "Nokia",
 ];
 
-export const Filters = () => {
+export const Filters: React.FC<FiltersProps> = ({
+  handleFilterChange,
+  selectedFilters,
+}) => {
   return (
     <div className="mr-11">
       <div className="border-2 border-gray-1 flex mb-5">
@@ -32,7 +46,14 @@ export const Filters = () => {
               return (
                 <FormControlLabel
                   key={brand}
-                  control={<Checkbox />}
+                  control={
+                    <Checkbox
+                    // checked={selectedFilters.brands.includes(brand)}
+                    // onChange={(event) => {
+                    //   handleFilterChange("brands", event.target.checked);
+                    // }}
+                    />
+                  }
                   label={brand}
                 />
               );
@@ -41,12 +62,16 @@ export const Filters = () => {
         </div>
 
         <div className="border-b-2 border-gray-2 py-5 px-6">
-          <h1 className="text-blue-4 font-bold">Precio</h1>
+          <h1 className="text-blue-4 font-bold mb-3">Precio</h1>
           <div className="flex items-center text-gray-3">
             <TextField
               id="outlined-basic"
               label="100"
               variant="outlined"
+              value={selectedFilters.minPrice}
+              onChange={(event) => {
+                handleFilterChange("minPrice", event.target.value);
+              }}
               sx={{
                 width: "120px",
                 height: "44px",
@@ -58,6 +83,10 @@ export const Filters = () => {
               id="outlined-basic"
               label="5,000"
               variant="outlined"
+              value={selectedFilters.maxPrice}
+              onChange={(event) => {
+                handleFilterChange("maxPrice", event.target.value);
+              }}
               sx={{
                 width: "120px",
                 height: "44px",
@@ -70,9 +99,10 @@ export const Filters = () => {
           <h1 className="mb-2">Reviews</h1>
           <Rating
             name="simple-controlled"
-            value={2}
+            value={selectedFilters.reviews}
             onChange={(event, newValue) => {
               console.log(newValue);
+              handleFilterChange("reviews", newValue);
             }}
           />
         </div>

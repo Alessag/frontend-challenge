@@ -5,6 +5,8 @@
 export interface Product {
   id: string;
   name: string;
+  brand: string;
+  reviews: number;
   originalPrice: number;
   currentPrice: number;
   image: string;
@@ -13,6 +15,8 @@ export const phonesList: Product[] = [
   {
     id: "1",
     name: "Moto E6 Play",
+    brand: "Motorola",
+    reviews: 4,
     originalPrice: 899,
     currentPrice: 699,
     image:
@@ -21,6 +25,8 @@ export const phonesList: Product[] = [
   {
     id: "2",
     name: "Samsung Galaxy A21s",
+    brand: "Samsung",
+    reviews: 5,
     originalPrice: 799,
     currentPrice: 599,
     image: "https://i.blogs.es/ec3e67/samsung-galaxy-a21s/1366_2000.jpg",
@@ -28,6 +34,8 @@ export const phonesList: Product[] = [
   {
     id: "3",
     name: "iPhone 14",
+    brand: "Apple",
+    reviews: 3,
     originalPrice: 699,
     currentPrice: 499,
     image:
@@ -36,6 +44,8 @@ export const phonesList: Product[] = [
   {
     id: "4",
     name: "Redmi note 11A",
+    brand: "Xiaomi",
+    reviews: 4,
     originalPrice: 800,
     currentPrice: 600,
     image:
@@ -44,6 +54,8 @@ export const phonesList: Product[] = [
   {
     id: "5",
     name: "Moto E7+",
+    brand: "Motorola",
+    reviews: 5,
     originalPrice: 500,
     currentPrice: 300,
     image: "https://m.media-amazon.com/images/I/614TeX+ZRiS._SL1000_.jpg",
@@ -51,6 +63,8 @@ export const phonesList: Product[] = [
   {
     id: "6",
     name: "Motorola G10",
+    brand: "Motorola",
+    reviews: 3,
     originalPrice: 750,
     currentPrice: 250,
     image:
