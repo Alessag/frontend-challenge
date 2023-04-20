@@ -1,6 +1,15 @@
 import React from "react";
 import { Checkbox, FormControlLabel, Rating, TextField } from "@mui/material";
+import { ProductCategory } from "../../../modules/home/utils/mockedData";
 
+const brands: Record<ProductCategory, string[]> = {
+  [ProductCategory.PHONE]: ["Apple", "Samsung", "Huawei"],
+  [ProductCategory.MOTORCYCLE]: ["Yamaha", "Honda", "Suzuki", "Kawasaki"],
+  [ProductCategory.LOAN]: ["Banco de Chile", "Banco Estado", "Banco Santander"],
+  [ProductCategory.STORE]: ["Falabella", "Paris", "Liverpool"],
+  [ProductCategory.TRACKING]: ["Correos de Chile", "Chilexpress"],
+  [ProductCategory.CLUB]: ["Cencosud", "Paris", "Liverpool"],
+};
 interface FiltersProps {
   handleFilterChange: (filterName: string, filterValue: any) => void;
   selectedFilters: {
@@ -9,23 +18,13 @@ interface FiltersProps {
     maxPrice: number;
     reviews: number;
   };
+  category: ProductCategory;
 }
-
-const listOfBrands = [
-  "Apple",
-  "Samsung",
-  "Huawei",
-  "Xiaomi",
-  "OPPp",
-  "Sony",
-  "LG",
-  "Motorola",
-  "Nokia",
-];
 
 export const Filters: React.FC<FiltersProps> = ({
   handleFilterChange,
   selectedFilters,
+  category,
 }) => {
   return (
     <div className="mr-11">
@@ -42,7 +41,7 @@ export const Filters: React.FC<FiltersProps> = ({
         <div className="border-b-2 border-gray-2 px-6 pt-5">
           <h1 className="text-blue-4 font-bold mb-1">Marcas</h1>
           <div className="flex flex-col lg:w-72 h-48 pl-3 text-base overflow-y-scroll">
-            {listOfBrands.map((brand) => {
+            {brands[category].map((brand) => {
               return (
                 <FormControlLabel
                   key={brand}

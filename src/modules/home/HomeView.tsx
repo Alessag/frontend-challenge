@@ -78,6 +78,7 @@ export const HomeView = () => {
         <Filters
           handleFilterChange={handleFilterChange}
           selectedFilters={selectedFilters}
+          category={parseCategory(location.pathname.substring(1))}
         />
         <div className="border border-black flex flex-col justify-start items-start">
           <SearchBar

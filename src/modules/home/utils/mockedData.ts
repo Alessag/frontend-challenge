@@ -88,7 +88,7 @@ export const phonesList: Product[] = [
   {
     id: "7",
     name: "Moto ",
-    brand: "Moto",
+    brand: "Yamaha",
     reviews: 3,
     originalPrice: 750,
     currentPrice: 250,
