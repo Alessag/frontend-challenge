@@ -35,11 +35,13 @@ export const HomeView = () => {
     minPrice: number;
     maxPrice: number;
     reviews: number;
+    favorite: boolean;
   }>({
     brands: [],
     minPrice: 0,
     maxPrice: 5000,
     reviews: 0,
+    favorite: false,
   });
 
   // filter by name search
@@ -51,7 +53,8 @@ export const HomeView = () => {
           selectedFilters.brands.includes(phone.brand)) &&
         phone.currentPrice >= Number(selectedFilters.minPrice) &&
         phone.currentPrice <= Number(selectedFilters.maxPrice) &&
-        phone.reviews >= selectedFilters.reviews
+        phone.reviews >= selectedFilters.reviews &&
+        (selectedFilters.favorite ? phone.favorite : true)
       );
     });
     setFilteredProducts(filteredPhones);

@@ -17,6 +17,7 @@ interface FiltersProps {
     minPrice: number;
     maxPrice: number;
     reviews: number;
+    favorite: boolean;
   };
   category: ProductCategory;
 }
@@ -116,6 +117,15 @@ export const Filters: React.FC<FiltersProps> = ({
         </div>
         <div className="text-blue-4 font-bold border-b-2 border-gray-2 py-5 px-6">
           Rango
+        </div>
+        <div className="text-blue-4 font-bold border-b-2 border-gray-2 py-5 px-6">
+          <h1 className="mb-2">Favorito</h1>
+          <Checkbox
+            checked={selectedFilters.favorite}
+            onChange={(event) => {
+              handleFilterChange("favorite", event.target.checked);
+            }}
+          />
         </div>
         <div className="text-blue-4 font-bold py-5 px-6">Cámara</div>
       </div>

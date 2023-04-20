@@ -19,6 +19,7 @@ export interface Product {
   currentPrice: number;
   image: string;
   category: ProductCategory;
+  favorite?: boolean;
 }
 export const phonesList: Product[] = [
   {
@@ -31,6 +32,7 @@ export const phonesList: Product[] = [
     image:
       "https://images.samsung.com/is/image/samsung/p6pim/mx/sm-g990elgaltm/gallery/mx-galaxy-s21-fe-g990-sm-g990elgaltm-530644429",
     category: ProductCategory.PHONE,
+    favorite: true,
   },
   {
     id: "2",
