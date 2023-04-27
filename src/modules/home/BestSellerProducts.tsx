@@ -8,7 +8,7 @@ export const BestSellerProducts = () => {
         Nuestros Productos Más Vendidos
       </h1>
       <div className="flex flex-row justify-start gap-x-9 w-80 md:w-[600px] lg:w-[800px] xl:w-full overflow-x-scroll">
-        {productList.map((product) => {
+        {productList.slice(0, 4).map((product) => {
           return <ProductCard key={product.id} product={product} />;
         })}
       </div>
