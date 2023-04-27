@@ -1,5 +1,7 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
+import { Carousel } from "react-responsive-carousel";
+
 import {
   FilterOptions,
   Filters,
@@ -8,8 +10,10 @@ import { ProductCard } from "../../common/components/productCard/ProductCard";
 import { SearchBar } from "../../common/components/searchbar/SearchBar";
 import { BestSellerProducts } from "./BestSellerProducts";
 import { parseCategory } from "./utils/functions";
-import { productList } from "./utils/mockedData";
+import { carouselImages, productList } from "./utils/mockedData";
 import { Product } from "./utils/types";
+
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 export const HomeView = () => {
   const location = useLocation();
@@ -79,6 +83,16 @@ export const HomeView = () => {
     setCategoryProducts(newProducts);
   };
 
+  const images = carouselImages.map((image) => {
+    return (
+      <img
+        src={image.image}
+        alt={image.alt}
+        className="w-full h-96 object-cover"
+      />
+    );
+  });
+
   return (
     <div>
       <div className="flex flex-col 2xl:justify-center lg:flex-row max-w-7xl 2xl:max-w-full mx-auto px-5 xl:px-0">
@@ -114,7 +128,20 @@ export const HomeView = () => {
         <h1 className="text-blue-3 text-lg md:text-xl lg:text-[22px] font-bold my-5 text-center">
           Ofertas y promociones
         </h1>
-        <div className="bg-red-300 h-[557px]">CTA Banner slider</div>
+
+        <div className="w-full max-w-6xl mx-auto mb-5 px-10 xl:px-0">
+          <Carousel
+            showArrows={true}
+            infiniteLoop={true}
+            showThumbs={false}
+            autoPlay={true}
+            interval={3000}
+            dynamicHeight={true}
+            showStatus={false}
+          >
+            {images}
+          </Carousel>
+        </div>
       </div>
 
       <BestSellerProducts />

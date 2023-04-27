@@ -267,3 +267,21 @@ export const productList: Product[] = [
     category: ProductCategory.CLUB,
   },
 ];
+
+export const carouselImages = [
+  {
+    id: "5",
+    image: "https://picsum.photos/seed/5/1639/700",
+    alt: `Carousel image 5`,
+  },
+  {
+    id: "6",
+    image: "https://picsum.photos/seed/6/1639/700",
+    alt: `Carousel image 6`,
+  },
+  {
+    id: "7",
+    image: "https://picsum.photos/seed/7/1639/700",
+    alt: `Carousel image 7`,
+  },
+];
