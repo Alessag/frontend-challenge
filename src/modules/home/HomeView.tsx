@@ -86,6 +86,7 @@ export const HomeView = () => {
   const images = carouselImages.map((image) => {
     return (
       <img
+        key={image.id}
         src={image.image}
         alt={image.alt}
         className="w-full h-96 object-cover"
