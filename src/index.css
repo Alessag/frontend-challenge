@@ -6,6 +6,10 @@
   .navLink {
     @apply text-blue-3 my-1 px-5;
   }
+
+  .title {
+    @apply text-blue-3 text-lg md:text-xl lg:text-[22px] font-bold my-5 text-center;
+  }
 }
 
 :root {

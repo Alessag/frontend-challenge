@@ -4,7 +4,7 @@ import {
   AiFillLinkedin,
   AiOutlineCopyrightCircle,
 } from "react-icons/ai";
-import { FaWhatsappSquare } from "react-icons/fa";
+import { FaWhatsappSquare, FaTelegramPlane } from "react-icons/fa";
 
 import logo from "../../../assets/logo.svg";
 import smile from "../../../assets/smile.svg";
@@ -21,11 +21,14 @@ export const Footer = () => {
             No te pierdas <br />
             nuestras ofertas!
           </h1>
-          <input
-            type="text"
-            placeholder="Tu dirección de correo electrónico"
-            className="bg-transparent border-2 border-black pb-3 mb-8 xl:mb-[77px] text-gray-3"
-          />
+          <div className="border-2 border-b-black border-x-0 border-t-0 flex items-center justify-start pb-3 mb-8 xl:mb-[77px] ">
+            <input
+              type="text"
+              placeholder="Tu dirección de correo electrónico"
+              className="bg-transparent text-blue-3 w-full outline-none appearance-none"
+            />
+            <FaTelegramPlane className="text-blue-2 w-8 xl:w-11 h-8 xl:h-11" />
+          </div>
 
           <div className="flex flex-col md:flex-row justify-start">
             <div className="bg-blue-1 flex items-center justify-center w-28 xl:w-52 h-10 xl:h-20 rounded-2xl px-3 mb-2 mr-5">
@@ -36,7 +39,7 @@ export const Footer = () => {
               />
             </div>
 
-            <ul className="grid grid-cols-1 md:grid-cols-2 md:gap-x-11 max-w-[451px] text-sm xl:text-lg mb-4">
+            <ul className="grid grid-cols-2 md:gap-x-11 max-w-[451px] text-sm xl:text-lg mb-4">
               <li className="mb-1">Envíos y devoluciones</li>
               <li className="mb-1">Aviso de privacidad</li>
               <li className="mb-1">Preguntas Frecuentes</li>

@@ -126,9 +126,7 @@ export const HomeView = () => {
       </div>
 
       <div className="border-2 w-full max-w-6xl mx-auto mb-5">
-        <h1 className="text-blue-3 text-lg md:text-xl lg:text-[22px] font-bold my-5 text-center">
-          Ofertas y promociones
-        </h1>
+        <h1 className="title">Ofertas y promociones</h1>
 
         <div className="w-full max-w-6xl mx-auto mb-5 px-10 xl:px-0">
           <Carousel
