@@ -14,6 +14,8 @@ export default {
           1: "#7D879C",
           2: "#EBEFF4",
           3: "#B4B4B4",
+          4: "#D8E0E9",
+          5: "#4B566B",
         },
         "yellow-": "#FFD300",
       },
