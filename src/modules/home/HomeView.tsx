@@ -125,18 +125,17 @@ export const HomeView = () => {
         </div>
       </div>
 
-      <div className="border-2 w-full max-w-6xl mx-auto mb-5">
+      <div className="w-full max-w-6xl mx-auto mb-5">
         <h1 className="title">Ofertas y promociones</h1>
-
         <div className="w-full max-w-6xl mx-auto mb-5 px-10 xl:px-0">
           <Carousel
-            showArrows={true}
-            infiniteLoop={true}
-            showThumbs={false}
-            autoPlay={true}
+            autoPlay
+            dynamicHeight
+            infiniteLoop
             interval={3000}
-            dynamicHeight={true}
+            showArrows
             showStatus={false}
+            showThumbs={false}
           >
             {images}
           </Carousel>
