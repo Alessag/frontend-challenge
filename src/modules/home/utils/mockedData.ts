@@ -29,6 +29,7 @@ export const productList: Product[] = [
     currentPrice: 900,
     image: getImageUrl("1"),
     category: ProductCategory.PHONE,
+    discount: 10,
   },
   {
     id: "2",
@@ -39,6 +40,7 @@ export const productList: Product[] = [
     currentPrice: 800,
     image: getImageUrl("2"),
     category: ProductCategory.PHONE,
+    discount: 40,
   },
   {
     id: "3",
@@ -49,6 +51,7 @@ export const productList: Product[] = [
     currentPrice: 750,
     image: getImageUrl("3"),
     category: ProductCategory.PHONE,
+    discount: 30,
   },
   {
     id: "33",
@@ -59,6 +62,7 @@ export const productList: Product[] = [
     currentPrice: 790,
     image: getImageUrl("33"),
     category: ProductCategory.PHONE,
+    discount: 45,
   },
   // Motorcycles
   {
@@ -80,6 +84,7 @@ export const productList: Product[] = [
     currentPrice: 20000,
     image: getImageUrl("5"),
     category: ProductCategory.MOTORCYCLE,
+    discount: 25,
   },
   {
     id: "6",
@@ -111,6 +116,7 @@ export const productList: Product[] = [
     currentPrice: 9900,
     image: getImageUrl("7"),
     category: ProductCategory.LOAN,
+    discount: 30,
   },
   {
     id: "8",
@@ -121,6 +127,7 @@ export const productList: Product[] = [
     currentPrice: 14500,
     image: getImageUrl("8"),
     category: ProductCategory.LOAN,
+    discount: 45,
   },
   {
     id: "88",
@@ -141,6 +148,7 @@ export const productList: Product[] = [
     currentPrice: 10500,
     image: getImageUrl("77"),
     category: ProductCategory.LOAN,
+    discount: 50,
   },
   // Stores
   {
@@ -162,6 +170,7 @@ export const productList: Product[] = [
     currentPrice: 550,
     image: getImageUrl("10"),
     category: ProductCategory.STORE,
+    discount: 15,
   },
   {
     id: "100",
@@ -172,6 +181,7 @@ export const productList: Product[] = [
     currentPrice: 4500,
     image: getImageUrl("100"),
     category: ProductCategory.STORE,
+    discount: 30,
   },
   {
     id: "110",
@@ -193,6 +203,7 @@ export const productList: Product[] = [
     currentPrice: 45,
     image: getImageUrl("11"),
     category: ProductCategory.TRACKING,
+    discount: 45,
   },
   {
     id: "12",
@@ -213,6 +224,7 @@ export const productList: Product[] = [
     currentPrice: 555,
     image: getImageUrl("122"),
     category: ProductCategory.TRACKING,
+    discount: 45,
   },
   {
     id: "125",
@@ -223,6 +235,7 @@ export const productList: Product[] = [
     currentPrice: 455,
     image: getImageUrl("125"),
     category: ProductCategory.TRACKING,
+    discount: 45,
   },
 
   // Clubs
@@ -235,6 +248,7 @@ export const productList: Product[] = [
     currentPrice: 90,
     image: getImageUrl("13"),
     category: ProductCategory.CLUB,
+    discount: 45,
   },
   {
     id: "14",
@@ -265,6 +279,7 @@ export const productList: Product[] = [
     currentPrice: 120,
     image: getImageUrl("155"),
     category: ProductCategory.CLUB,
+    discount: 45,
   },
 ];
 

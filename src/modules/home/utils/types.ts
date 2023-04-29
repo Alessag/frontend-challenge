@@ -10,4 +10,5 @@ export interface Product {
   image: string;
   category: ProductCategory;
   favorite?: boolean;
+  discount?: number | undefined;
 }
