@@ -17,7 +17,8 @@ export default {
           4: "#D8E0E9",
           5: "#4B566B",
         },
-        "yellow-": "#FFD300",
+        yellow: "#FFD300",
+        red: "#E6406D",
       },
       boxShadow: {
         primary: "0px 5px 6px #00000029",

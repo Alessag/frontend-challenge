@@ -30,6 +30,11 @@ export const ProductCard: React.FC<ProductCardProps> = ({
           alt={product.name}
           className="w-full h-[445px] object-cover"
         />
+        {product.discount && product.discount > 0 && (
+          <div className="absolute left-4 bottom-5 w-[98px] h-[98px] bg-red text-4xl rounded-full flex justify-center items-center font-bold text-white">
+            {product.discount}%
+          </div>
+        )}
       </div>
       <div className="bg-white flex justify-between pt-2 px-6 pb-6">
         <div>
@@ -48,7 +53,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
           <p className="text-gray-1 font-semibold mb-2">
             <del>${product.originalPrice}</del>
           </p>
-          <button className="bg-yellow- text-blue-2 text-base font-semibold w-28 h-11 rounded-md cursor-pointer">
+          <button className="bg-yellow text-blue-2 text-base font-semibold w-28 h-11 rounded-md cursor-pointer">
             Lo quiero
           </button>
         </div>

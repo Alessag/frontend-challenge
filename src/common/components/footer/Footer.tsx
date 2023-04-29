@@ -11,7 +11,7 @@ import smile from "../../../assets/smile.svg";
 
 export const Footer = () => {
   return (
-    <div className="bg-yellow- text-blue-3 pb-[26px] py-10 px-5">
+    <div className="bg-yellow text-blue-3 pb-[26px] py-10 px-5">
       <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between max-w-[1603px] m-auto">
         <div className="flex flex-col  lg:max-w-3xl">
           <p className="uppercase text-sm md:text-xl text-blue-4 font-bold mb-3 lg:mb-6">
