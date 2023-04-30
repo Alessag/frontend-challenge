@@ -96,7 +96,7 @@ export const HomeView = () => {
             onSearch={(searchValue) => setSearchValue(searchValue)}
             label="Encuentra el producto que necesitas"
           />
-          <div className="border-2 border-black grid grid-cols-1 xl:grid-cols-2 3xl:grid-cols-3 gap-4 lg:gap-[51px] h-[600px] lg:h-[800px] overflow-y-scroll">
+          <div className="grid justify-items-center  grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 md:gap-16 lg:gap-[51px] w-full h-[600px] lg:h-[800px] overflow-y-scroll">
             {filteredProducts.length > 0 ? (
               filteredProducts.map((product) => {
                 return (

@@ -13,7 +13,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
   handleFavorite,
 }) => {
   return (
-    <div className="rounded-xl md:w-96">
+    <div className="w-64 xl:w-96">
       <div className="relative bg-slate-100">
         <div
           className="absolute top-4 right-5 z-10 text-3xl text-gray-1 cursor-pointer"
@@ -28,32 +28,34 @@ export const ProductCard: React.FC<ProductCardProps> = ({
         <img
           src={product.image}
           alt={product.name}
-          className="w-full h-[445px] object-cover"
+          className="w-full h-64 xl:h-[445px] object-cover rounded-t-xl"
         />
         {product.discount && product.discount > 0 && (
-          <div className="absolute left-4 bottom-5 w-[98px] h-[98px] bg-red text-4xl rounded-full flex justify-center items-center font-bold text-white">
+          <div className="absolute left-2 xl:left-4 bottom-3 xl:bottom-5 w-12 xl:w-[98px] h-12 xl:h-[98px] bg-red xl:text-4xl rounded-full flex justify-center items-center font-bold text-white">
             {product.discount}%
           </div>
         )}
       </div>
-      <div className="bg-white flex justify-between pt-2 px-6 pb-6">
+      <div className="bg-white flex justify-between pt-2 px-3 xl:px-6 pb-6 rounded-b-xl">
         <div>
-          <p className="text-blue-3 text-base font-semibold">{product.name}</p>
-          <div className="flex h-auto text-2xl mb-5">
+          <p className="text-blue-3 text-sm xl:text-base font-semibold">
+            {product.name}
+          </p>
+          <div className="flex h-auto text-2xl mb-2 xl:mb-5">
             <Rating name="product-reviews" value={product.reviews} readOnly />
           </div>
-          <p className="text-sm text-gray-1 font-semibold">
+          <p className="text-xs xl:text-sm text-gray-1 font-semibold">
             $120 p/semana <br /> $520 p/mes
           </p>
         </div>
         <div className="text-right">
-          <p className="text-blue-2 font-bold text-3xl md:text-[40px]">
+          <p className="text-blue-2 font-bold text-2xl xl:text-3xl md:text-[40px]">
             ${product.currentPrice}
           </p>
-          <p className="text-gray-1 font-semibold mb-2">
+          <p className="text-gray-1 text-xs lg:text-base font-semibold mb-2">
             <del>${product.originalPrice}</del>
           </p>
-          <button className="bg-yellow text-blue-2 text-base font-semibold w-28 h-11 rounded-md cursor-pointer">
+          <button className="bg-yellow text-blue-2 text-xs xl:text-base font-semibold w-16 xl:w-28 h-6 xl:h-11 rounded-md cursor-pointer">
             Lo quiero
           </button>
         </div>
