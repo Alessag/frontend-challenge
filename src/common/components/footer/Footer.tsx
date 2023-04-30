@@ -8,10 +8,12 @@ import { FaWhatsappSquare, FaTelegramPlane } from "react-icons/fa";
 
 import logo from "../../../assets/logo.svg";
 import smile from "../../../assets/smile.svg";
+import useViewport from "../../utils/hooks/useViewport";
 
 export const Footer = () => {
+  const viewport = useViewport();
   return (
-    <div className="bg-yellow text-blue-3 pb-[26px] py-10 px-5">
+    <div className="bg-yellow text-blue-3 pb-[26px] py-10 px-3 xl:px-8">
       <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between max-w-[1603px] m-auto">
         <div className="flex flex-col  lg:max-w-3xl">
           <p className="uppercase text-sm md:text-xl text-blue-4 font-bold mb-3 lg:mb-6">
@@ -30,20 +32,24 @@ export const Footer = () => {
             <FaTelegramPlane className="text-blue-2 w-8 xl:w-11 h-8 xl:h-11" />
           </div>
 
-          <div className="flex flex-col md:flex-row justify-start">
-            <div className="bg-blue-1 flex items-center justify-center w-28 xl:w-52 h-10 xl:h-20 rounded-2xl px-3 mb-2 mr-5">
-              <img
-                src={logo}
-                alt="Macropay logo"
-                className="max-w-52 max-h-20"
-              />
+          <div className="flex flex-row justify-start items-center mb-4 xl:mb-0">
+            <div className="bg-blue-1 flex items-center justify-center w-28 xl:w-52 h-10 xl:h-20 rounded-2xl px-3 mr-5 2xl:mr-28">
+              <img src={logo} alt="Macropay logo" className="w-52 h-20" />
             </div>
 
-            <ul className="grid grid-cols-2 md:gap-x-11 max-w-[451px] text-sm xl:text-lg mb-4">
-              <li className="mb-1">Envíos y devoluciones</li>
-              <li className="mb-1">Aviso de privacidad</li>
-              <li className="mb-1">Preguntas Frecuentes</li>
-              <li className="mb-1">Términos y condiciones</li>
+            <ul className="grid grid-cols-2 md:gap-x-11 max-w-[451px] text-sm xl:text-lg">
+              <li className="mb-1">
+                {viewport === "sm" ? "Env. y dev." : "Envíos y devoluciones"}
+              </li>
+              <li className="mb-1">
+                {viewport === "sm" ? "Aviso de priv." : "Aviso de privacidad"}
+              </li>
+              <li className="mb-1">
+                {viewport === "sm" ? "Preg. Freq." : "Preguntas Frecuentes"}
+              </li>
+              <li className="mb-1">
+                {viewport === "sm" ? "Tér. y cond." : "Términos y condiciones"}
+              </li>
             </ul>
           </div>
           <p className="flex items-center text-xs text-gray-5 xl:my-4">
@@ -52,7 +58,7 @@ export const Footer = () => {
           </p>
         </div>
 
-        <div className="w-[205px] h-[173px] my-4">
+        <div className="w-28 xl:w-[205px] h-28 xl:h-[173px] my-4">
           <img src={smile} alt="smile" className="w-full h-full" />
         </div>
 
