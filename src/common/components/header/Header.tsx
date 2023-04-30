@@ -13,8 +13,8 @@ export const Header = () => {
         <div className="bg-gray-100 w-5 md:w-11 h-5 md:h-11 rounded-full flex justify-center items-center lg:mr-60">
           <AiOutlineShoppingCart color="gray" />
         </div>
-        <div className="absolute top-0 right-0 hidden lg:flex lg:items-center lg:justify-center uppercase bg-yellow lg:w-56 lg:h-56 rounded-bl-full text-white">
-          <p className="rotate-45 text-xs lg:text-4xl pb-9">
+        <div className="absolute top-0 right-0 hidden lg:flex lg:items-center lg:justify-center uppercase bg-yellow w-44 xl:w-56 h-44 xl:h-56 rounded-bl-full text-white">
+          <p className="rotate-45 text-2xl xl:text-4xl pb-9">
             Compra a<br /> crédito
           </p>
         </div>
