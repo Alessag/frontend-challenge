@@ -1,6 +1,5 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
-import { Carousel } from "react-responsive-carousel";
 
 import {
   FilterOptions,
@@ -9,8 +8,9 @@ import {
 import { ProductCard } from "../../common/components/productCard/ProductCard";
 import { SearchBar } from "../../common/components/searchbar/SearchBar";
 import { BestSellerProducts } from "./BestSellerProducts";
+import { ProductsCarousel } from "./ProductsCarousel";
 import { parseCategory } from "./utils/functions";
-import { carouselImages, productList } from "./utils/mockedData";
+import { productList } from "./utils/mockedData";
 import { Product } from "./utils/types";
 
 import "react-responsive-carousel/lib/styles/carousel.min.css";
@@ -83,17 +83,6 @@ export const HomeView = () => {
     setCategoryProducts(newProducts);
   };
 
-  const images = carouselImages.map((image) => {
-    return (
-      <img
-        key={image.id}
-        src={image.image}
-        alt={image.alt}
-        className="w-full h-96 object-cover"
-      />
-    );
-  });
-
   return (
     <div>
       <div className="flex flex-col 2xl:justify-center lg:flex-row max-w-7xl 2xl:max-w-full mx-auto px-5 xl:px-0">
@@ -107,7 +96,7 @@ export const HomeView = () => {
             onSearch={(searchValue) => setSearchValue(searchValue)}
             label="Encuentra el producto que necesitas"
           />
-          <div className="grid grid-cols-1 xl:grid-cols-2 3xl:grid-cols-3 gap-4 lg:gap-[51px] h-[500px] lg:h-[800px] overflow-y-scroll">
+          <div className="border-2 border-black grid grid-cols-1 xl:grid-cols-2 3xl:grid-cols-3 gap-4 lg:gap-[51px] h-[600px] lg:h-[800px] overflow-y-scroll">
             {filteredProducts.length > 0 ? (
               filteredProducts.map((product) => {
                 return (
@@ -124,24 +113,7 @@ export const HomeView = () => {
           </div>
         </div>
       </div>
-
-      <div className="w-full max-w-6xl mx-auto mb-5">
-        <h1 className="title">Ofertas y promociones</h1>
-        <div className="w-full max-w-6xl mx-auto mb-5 px-10 xl:px-0">
-          <Carousel
-            autoPlay
-            dynamicHeight
-            infiniteLoop
-            interval={3000}
-            showArrows
-            showStatus={false}
-            showThumbs={false}
-          >
-            {images}
-          </Carousel>
-        </div>
-      </div>
-
+      <ProductsCarousel />
       <BestSellerProducts />
     </div>
   );
