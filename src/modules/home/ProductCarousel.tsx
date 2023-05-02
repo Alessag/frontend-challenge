@@ -1,7 +1,7 @@
 import { Carousel } from "react-responsive-carousel";
 import { carouselImages } from "./utils/mockedData";
 
-export const ProductsCarousel = () => {
+export const ProductCarousel = () => {
   const images = carouselImages.map((image) => {
     return (
       <img

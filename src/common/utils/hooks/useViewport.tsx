@@ -1,9 +1,14 @@
 import React from "react";
+import useBoolean from "./useBoolean";
 
 type Viewport = "sm" | "md" | "lg" | "xl" | "2xl";
 
 const useViewport = () => {
   const [viewport, setViewport] = React.useState<Viewport>("sm");
+  const { value: isSmallViewport, setValue: setIsSmallViewport } =
+    useBoolean(true);
+  const { value: isMediumViewport, setValue: setIsMediumViewport } =
+    useBoolean(false);
 
   React.useEffect(() => {
     const handleResize = () => {
@@ -27,7 +32,18 @@ const useViewport = () => {
     };
   }, []);
 
-  return viewport;
+  React.useEffect(() => {
+    const handleResize = () => {
+      setIsMediumViewport(viewport === "sm" || viewport === "md");
+      setIsSmallViewport(
+        viewport === "sm" || viewport === "md" || viewport === "lg"
+      );
+    };
+
+    handleResize();
+  }, [viewport]);
+
+  return { viewport, isSmallViewport, isMediumViewport };
 };
 
 export default useViewport;

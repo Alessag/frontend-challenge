@@ -13,8 +13,8 @@ export const ProductCard: React.FC<ProductCardProps> = ({
   handleFavorite,
 }) => {
   return (
-    <div className="w-64 xl:w-96">
-      <div className="relative bg-slate-100">
+    <div className="w-64 xl:w-96 mb-4 xl">
+      <div className="relative bg-gray-2">
         <div
           className="absolute top-4 right-5 z-10 text-3xl text-gray-1 cursor-pointer"
           onClick={() => {

@@ -11,7 +11,7 @@ import smile from "../../../assets/smile.svg";
 import useViewport from "../../utils/hooks/useViewport";
 
 export const Footer = () => {
-  const viewport = useViewport();
+  const { viewport } = useViewport();
   return (
     <div className="bg-yellow text-blue-3 pb-[26px] py-10 px-3 xl:px-8">
       <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between max-w-[1603px] m-auto">

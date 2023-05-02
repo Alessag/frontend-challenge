@@ -1,14 +1,10 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
 
-import {
-  FilterOptions,
-  Filters,
-} from "../../common/components/filters/Filters";
-import { ProductCard } from "../../common/components/productCard/ProductCard";
-import { SearchBar } from "../../common/components/searchbar/SearchBar";
+import { FilterOptions } from "../../common/components/filters/Filters";
+import { ProductList } from "./ProductList";
+import { ProductCarousel } from "./ProductCarousel";
 import { BestSellerProducts } from "./BestSellerProducts";
-import { ProductsCarousel } from "./ProductsCarousel";
 import { parseCategory } from "./utils/functions";
 import { productList } from "./utils/mockedData";
 import { Product } from "./utils/types";
@@ -70,6 +66,10 @@ export const HomeView = () => {
     }));
   };
 
+  const handleSearchChange = (searchValue: string) => {
+    setSearchValue(searchValue);
+  };
+
   const handleFavorite = (id: string) => {
     const newProducts = categoryProducts.map((product) => {
       if (product.id === id) {
@@ -85,35 +85,16 @@ export const HomeView = () => {
 
   return (
     <div>
-      <div className="flex flex-col 2xl:justify-center lg:flex-row max-w-7xl 2xl:max-w-full mx-auto px-5 xl:px-0">
-        <Filters
-          handleFilterChange={handleFilterChange}
-          selectedFilters={selectedFilters}
-          category={parseCategory(location.pathname.substring(1))}
-        />
-        <div className="flex flex-col justify-start items-start">
-          <SearchBar
-            onSearch={(searchValue) => setSearchValue(searchValue)}
-            label="Encuentra el producto que necesitas"
-          />
-          <div className="grid justify-items-center  grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 md:gap-16 lg:gap-[51px] w-full h-[600px] lg:h-[800px] overflow-y-scroll">
-            {filteredProducts.length > 0 ? (
-              filteredProducts.map((product) => {
-                return (
-                  <ProductCard
-                    key={product.id}
-                    product={product}
-                    handleFavorite={handleFavorite}
-                  />
-                );
-              })
-            ) : (
-              <p>No se encontraron resultados</p>
-            )}
-          </div>
-        </div>
-      </div>
-      <ProductsCarousel />
+      <ProductList
+        filteredProducts={filteredProducts}
+        handleFavorite={handleFavorite}
+        handleFilterChange={handleFilterChange}
+        location={location}
+        selectedFilters={selectedFilters}
+        handleSearchChange={handleSearchChange}
+        key={location.pathname}
+      />
+      <ProductCarousel />
       <BestSellerProducts />
     </div>
   );
