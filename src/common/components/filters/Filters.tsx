@@ -52,9 +52,7 @@ export const Filters: React.FC<FiltersProps> = ({
   selectedFilters,
   category,
 }) => {
-  const viewport = useViewport();
-  const isSmallViewport =
-    viewport === "sm" || viewport === "md" || viewport === "lg";
+  const { isSmallViewport } = useViewport();
   const {
     value: showModal,
     setTrue: openModal,

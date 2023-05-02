@@ -9,7 +9,7 @@ interface SearchBarProps {
 }
 
 export const SearchBar: React.FC<SearchBarProps> = ({ onSearch, label }) => {
-  const viewport = useViewport();
+  const { isMediumViewport } = useViewport();
   const [searchValue, setSearchValue] = React.useState<string>("");
 
   const handleSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -23,15 +23,13 @@ export const SearchBar: React.FC<SearchBarProps> = ({ onSearch, label }) => {
         <FiSearch color="#7D879C" />
       </div>
       <input
-        placeholder={viewport === "sm" || viewport === "md" ? "Buscar" : label}
+        placeholder={isMediumViewport ? "Buscar" : label}
         value={searchValue}
         onChange={handleSearch}
         className="h-11 text-gray-5 w-44 md:w-96 outline-none"
       />
       <div className="border-2 bg-gray-1 flex justify-center items-center rounded-r-full w-28 md:w-48 text-center text-gray-4 h-11 cursor-pointer">
-        {viewport === "sm" || viewport === "md"
-          ? "Categorías"
-          : "Todas las categorías"}
+        {isMediumViewport ? "Categorías" : "Todas las categorías"}
         <AiFillCaretDown className="ml-2" />
       </div>
     </div>

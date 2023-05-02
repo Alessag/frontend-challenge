@@ -37,7 +37,7 @@ const NavLinks = ({ navLinkOptions, handleClose }: NavbarProps) => (
 );
 
 export const Navbar = () => {
-  const viewport = useViewport();
+  const { isSmallViewport } = useViewport();
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
 
@@ -48,12 +48,9 @@ export const Navbar = () => {
     setAnchorEl(null);
   };
 
-  const isSmallViewPort =
-    viewport === "sm" || viewport === "md" || viewport === "lg";
-
   return (
     <nav className="border-black md:h-[60px] bg-white flex flex-col md:flex-row md:items-center  shadow-primary">
-      {isSmallViewPort ? (
+      {isSmallViewport ? (
         <div className="w-full bg-white">
           <Button
             id="categories-button"
